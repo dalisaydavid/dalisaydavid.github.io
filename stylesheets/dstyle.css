@@ -1,0 +1,28 @@
+/*.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+    stroke: #0CC162;
+}*/
+
+.container {
+    position: relative;
+    width: 500px;
+}
+.container div {
+    height: 300px;
+}
+
+#WordFrequencyChart-Lucio {
+    width: 33%;
+    left: 0;;
+    position: absolute;
+}
+#WordFrequencyChart-Mercy {
+    width: 34%;
+    margin-left: 33%;
+    position: absolute;
+}
+
+#WordFrequencyChart-Genji {
+    width: 33%;
+    right: 0;
+    position: absolute;
+}
