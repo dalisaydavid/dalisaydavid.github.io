@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/dstyle.css">
+    <title>Overwatch Hero Reddit Mentions</title>
+</head>
+<body>
+
+Net Sentiment Per Hero
+<div class="ct-chart ct-golden-section" id="NetSentimentChart" style="height:550px; width:800px;"></div>
+
+Number of Mentions Per Hero
+</br>Tan - Comments, Red - Posts
+<div class="ct-chart ct-golden-section" id="MostMentionedPostChart" style="height:450px; width:800px;"></div>
+<div class="container" style="height:450px; width:900px;">
+    <div class="ct-chart ct-golden-section" id="WordFrequencyChart-Lucio">Lucio</div>
+    <div class="ct-chart ct-golden-section" id="WordFrequencyChart-Mercy">Mercy</div>
+    <div class="ct-chart ct-golden-section" id="WordFrequencyChart-Genji">Genji</div>
+</div>
+
+Number of Mentions Per Popular Hero Combination
+<div class="ct-chart ct-golden-section" id="HeroComboChart" style="height:550px; width:800px;"></div>
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script>
+
+    new Chartist.Bar('#NetSentimentChart',
+        {
+            labels: ['lucio', 'mercy', 'genji', 'pharah', 'zenyatta', 'roadhog', 'hanzo', 'junkrat', 'mccree', 'dva', 'zarya', 'symmetra', 'reinhardt', 'winston', 'bastion', 'reaper','soldier-76', 'tracer', 'torbjorn', 'widowmaker', 'mei'],
+            series: [
+                [266, 139, 103, 73, 48, 36, 29, 27, 25, 25, 24, 19, 16, 10, 6, 5, 1, 1, -2, -18, -23],
+            ]
+        },
+        {
+            high: 270,
+            low: -30,
+            seriesBarDistance: 5,
+            axisX: {
+                labelInterpolationFnc: function (value) {
+                    return value.substring(0, 3);
+                }
+            }
+
+        });
+
+    new Chartist.Bar('#MostMentionedPostChart', {
+      labels: ['mercy', 'genji', 'reinhardt', 'hanzo', 'reaper', 'tracer', 'roadhog', 'junkrat', 'mei', 'mccree', 'lucio', 'pharah', 'zenyatta', 'zarya', 'symmetra', 'widowmaker', 'bastion', 'torbjorn', 'winston', 'dva', 'soldier-76'],
+      series: [
+          [139, 135, 118, 99, 90, 88, 86, 83, 83, 82, 71, 69, 66, 64, 64, 60, 59, 53, 40, 17, 1],
+          [226, 240, 168, 161, 193, 160, 97, 115, 213, 120, 205, 182, 103, 79, 87, 61, 137, 44, 43, 34, 0],
+      ]
+    },{
+      seriesBarDistance: 0,
+      reverseData: true,
+      horizontalBars: true,
+      axisY: {
+        offset: 70
+      }
+    });
+
+
+    new Chartist.Bar('#WordFrequencyChart-Lucio',
+        {
+            labels: ['mercy', 'play', 'team', 'like', 'people'],
+            series: [
+                    [55, 45, 42, 37, 30],
+            ]
+        },
+        {
+            high: 60,
+            low: 20
+        }).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 20px'
+            });
+          }
+        });
+
+    new Chartist.Bar('#WordFrequencyChart-Mercy',
+        {
+            labels: ['team', 'play', "don't", 'like', 'playing'],
+            series: [
+                    [52, 47, 44, 41, 37],
+            ]
+        },
+        {
+            high: 60,
+            low: 20
+        }).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 20px'
+            });
+          }
+        });
+
+    new Chartist.Bar('#WordFrequencyChart-Genji',
+        {
+            labels: ['team', 'like', 'play', 'good', '-'],
+            series: [
+                    [62, 54, 41, 34, 33],
+            ]
+        },
+        {
+            high: 70,
+            low: 20
+        }).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 20px'
+            });
+          }
+        });
+
+
+    new Chartist.Bar('#HeroComboChart',
+        {
+            labels: ['lucio,mercy', 'genji,mercy', 'reaper,tracer', 'junkrat,pharah', 'genji,hanzo'],
+            series: [
+                [47, 15, 15, 14, 14],
+            ]
+        },
+        {
+            high: 50,
+            low: 0,
+            seriesBarDistance: 5,
+
+        }).on('draw', function(data) {
+          if(data.type === 'bar') {
+            data.element.attr({
+              style: 'stroke-width: 40px'
+            });
+          }
+        });
+
+</script>
+</body>
+</html>
