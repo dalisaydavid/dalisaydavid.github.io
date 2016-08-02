@@ -10,11 +10,16 @@
 <body>
 
 Net Sentiment Per Hero
+</br>This chart shows a simple "sentiment" calculation for each hero. Positive, neutral, and negative words are evaluated using a word bank from Princeton's wordnet.
 <div class="ct-chart ct-golden-section" id="NetSentimentChart" style="height:550px; width:800px;"></div>
 
 Number of Mentions Per Hero
 </br>Tan - Comments, Red - Posts
+</br>This chart shows how many times each hero is mentioned in a reddit post or comment.
 <div class="ct-chart ct-golden-section" id="MostMentionedPostChart" style="height:450px; width:800px;"></div>
+
+Counts of popular used words per Hero
+</br>This chart shows how many times each word is mentioned in posts and comments per hero. It only shows the 5 most popular words.
 <div class="container" style="height:450px; width:900px;">
     <div class="ct-chart ct-golden-section" id="WordFrequencyChart-Lucio">Lucio</div>
     <div class="ct-chart ct-golden-section" id="WordFrequencyChart-Mercy">Mercy</div>
@@ -22,6 +27,7 @@ Number of Mentions Per Hero
 </div>
 
 Number of Mentions Per Popular Hero Combination
+</br>This chart shows how many times each popular hero combination is mentioned in a reddit post or comment.
 <div class="ct-chart ct-golden-section" id="HeroComboChart" style="height:550px; width:800px;"></div>
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 <script>
